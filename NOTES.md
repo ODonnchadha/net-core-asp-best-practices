@@ -1,0 +1,102 @@
+## Architecting ASP.NET Core Applications: Best Practices
+- by Gill Cleeren
+
+- OVERVIEW:
+    - Enterprise ASP.NET Core application. With proven clean architecture. Best practices and principles. Testable & maintable code-base. Swagger. REST.
+
+- INTRODUCTION:
+    - GloboTicket application. Synposis: Development team is talented but their skillset is outdated. So we'll build a new system.
+    - CORE 3.1. C#. ASP.NET Core & EF Core. REST APIs with ASP.NET Core. Optionally: Blazor.
+
+- FOUNDATIONAL ARCHITECTURAL PRINCIPLES:
+    - Foundational design principles:
+        - Dependency inversion:
+            - Decoupling modules. Abstractions. Typically interfaces.
+            - Dependencies should be pointing to abstrtactions. Typically top to bottom.
+            - Assists with building more loosely-coupled applications.
+        - Seperation of concerns:
+            - Split into blocks of functionality. Each covering a concern.
+            - More modulular code. Encapsulation within a module.
+            - Typical layered application. Easier to maintain.
+        - Single responsibility:
+            - OO Terminology. Each block should just have one single responsibility which it encapulates.
+            - More, new classes are created.
+            - Can be extendede to application level: Different layers have their own responsibility.
+        - DRY: Don't Repeat Yourself:
+            - Less code repition. Easier to make changes.
+        - Persistence ingnorance:
+            - POCO: Plain Ol' CLR Objects.
+            - Domain classes should not be impacted by how theyr are persisted.
+            - Typically required base class or attributes.
+    - Different application architectural styles:
+        - All-in-one architecture. Contained typically in one (large) Visual Studio project. e.g.: File -> New Project. 
+            - Layers are folders. Can be difficult to maintain.
+        - Layered architecture. Split according to concern. Promote reuse. Easier to maintain. Pluggable.
+            - Typical: Presentation layer, business logic (service) layer, data access layer.
+            - Disadvantages: Still "coupling" between layers. Behaves as single application.
+    - Understanding clean architecture:
+        - Based upon design principles. Seperate concerns. Creation of maintainable & testable application code.
+        - Variation on hexagonal & onion architecture. Introduced in 2012. Seperation of concerns. Loose coupling. Independent of "external" influences. UI, Database.
+        - User Interface/Infrastructure. 
+        - Application Core. Interfaces/Entities. 
+            - Abstractions (high-level.) Interfaces and entities. Business logic at the center of the application (use cases.)
+            - Agnostic to outer circles. Has no dependencies on external influences.
+        - Outer circles are infrastructure (mechanisms.) Depends on core. Implements interfaces from Core.
+        - Dependencies are inverted. Pointing inward.
+        - UI: depends on Core.
+        - Two (2) important pronciples.
+            - Dependency Inversion.
+            - Mediator pattern. Messaging between different objects.
+        - Who goes where?
+        - Core: Entities. Interfaces (Core. Infrastructure.) Services. Excpetions.
+            - No dependency to any infrastructure-related code or package.
+        - Infrastructure: Data access (EF Core.) Logging. Identity. API Clients. File access.
+        - UI: API/MVC/Razor. Specific ASP.NET Core items (Middleware. Filters.) Interact with service through MediatR. (Loose coupling. Lightweight controllers.)
+    - Clean Architecture Benefits:
+        - Independent of UI or usede frameworks.
+        - No knowledge of used database.
+        - Testable and maintainable.
+    - Not a perfect fit for everything. A bit of overhead.
+
+- APPLICATION CORE:
+    - Setting up the application core: Understanding the business requirements. Setting up the solution. Creating the domain. Designing the application project.
+        - Contracts. Packages. Validation. Exceptions.
+    - Business Requirements: Manage EVENTS. Overview of events in their CATEGORIES. ORDERS for the different events.
+        - And wireframes.
+    - REST API: Build on ASP.NET Core. Clean architecture principles. Data access using EF Core.
+    - Client: Built using Blazor WebAssembly.
+    - Class libraries: .NET Standard.
+    - Creating the Domain Project.
+    - Achieving loose coupling in the application core:
+        - Contracts (Abstractions. Interfaces.) Functionality is described in interfaces. Implemented in Core or infrastructure.
+        - Using respositories. Mediates between domain and data-mapping layer. Often used in combination with UOW.
+            - Data access operations. Agnostic for the rest of the application. Generic methods. Specific respositories.
+        - Messaging.
+    - Using a Mediator: 
+        - Object that wraps what how objects need to interact. Avoid hard references from one object to the next. Assist with communication from/to Core project objects.
+        - Advantages: Changes can be handled easily. Easy to test the (encapsulated) object.
+    - Using MediatR: Simple mediator implementation in .NET. Install and resister.
+    - Using: IRequest & IRequestHandler. Included: Pipeline behaviour. (Logging, validation, caching.)
+    - Mapping from an entity to a view model without manually-written code. Automapper library. Mapping from one type to another.
+    - Reading and writing data:
+        - Same model is used.
+        - Issues in larger applications: Different queries. Different objects being returned. Complex logic on save. Different security, perhaps.
+        - NOTE: Model may become too heavy.
+        - Adding simple CQRS: Command-query responsibility segregation.
+            - Different models. Commands to update data. Queries to read data.
+            - Commands are task-based and can be asynchronous.
+        - Advantages: Seperation of concerns. Scaling. Security. Easy to make change. No further impact.
+        - Disadvantages: Added complexity. Targeted at more complex applications.
+        -CQRS: Small model classes with a certain responsibility. Query & command. With CRUD per each.
+    - Feature-based approach:
+        - Vertical slice through the functionality. Features folder & subfolders. (Not shared typically, even if identical.)
+
+- INFRASTRUCTURE PROJECT:
+
+- ADDING ASP.NET CORE API:
+
+- TESTING:
+
+- ADDING UI:
+
+- IMPROVING APPLICATION BEHAVIOR:
