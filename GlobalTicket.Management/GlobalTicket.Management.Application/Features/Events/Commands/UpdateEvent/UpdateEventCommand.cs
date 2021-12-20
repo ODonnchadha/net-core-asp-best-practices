@@ -1,14 +1,17 @@
-﻿namespace GlobalTicket.Management.Application.Features.Categories.Queries
+﻿namespace GlobalTicket.Management.Application.Features.Events.Commands
 {
+    using MediatR;
     using System;
 
-    public class CategoryEventDto
+    public class UpdateEventCommand : IRequest
     {
         public Guid EventId { get; set; }
         public string Name { get; set; }
         public int Price { get; set; }
         public string Artist { get; set; }
         public DateTime Date { get; set; }
+        public string Description { get; set; }
+        public string ImageUrl { get; set; }
         public Guid CategoryId { get; set; }
     }
 }

@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Artifacts", "Artifacts", "{53FE907D-559C-4688-B593-D6CDBE972208}"
 	ProjectSection(SolutionItems) = preProject
 		..\Artifacts\001 Clean Architecture.JPG = ..\Artifacts\001 Clean Architecture.JPG
+		..\Artifacts\002 Creating a New Entity.JPG = ..\Artifacts\002 Creating a New Entity.JPG
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3EED3EC8-6A2A-48DF-B893-E4F46ED7E6D3}"
@@ -27,7 +28,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{1FEB232B-704A-
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlobalTicket.Management.Domain", "GlobalTicket.Management.Domain\GlobalTicket.Management.Domain.csproj", "{70B71CD6-2F0A-4342-A936-F874A0D4DB23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalTicket.Management.Application", "GlobalTicket.Management.Application\GlobalTicket.Management.Application.csproj", "{ED4C663F-9DEE-4972-9734-AA904F54F787}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlobalTicket.Management.Application", "GlobalTicket.Management.Application\GlobalTicket.Management.Application.csproj", "{ED4C663F-9DEE-4972-9734-AA904F54F787}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalTicket.Management.Persistence", "GlobalTicket.Management.Persistence\GlobalTicket.Management.Persistence.csproj", "{9DB08AAA-5410-4125-A822-978E8E9AF9DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalTicket.Management.Infrastructure", "GlobalTicket.Management.Infrastructure\GlobalTicket.Management.Infrastructure.csproj", "{8380CBCA-2C91-42FD-AAB0-4A141305328B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +48,14 @@ Global
 		{ED4C663F-9DEE-4972-9734-AA904F54F787}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED4C663F-9DEE-4972-9734-AA904F54F787}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED4C663F-9DEE-4972-9734-AA904F54F787}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DB08AAA-5410-4125-A822-978E8E9AF9DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DB08AAA-5410-4125-A822-978E8E9AF9DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DB08AAA-5410-4125-A822-978E8E9AF9DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DB08AAA-5410-4125-A822-978E8E9AF9DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8380CBCA-2C91-42FD-AAB0-4A141305328B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8380CBCA-2C91-42FD-AAB0-4A141305328B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8380CBCA-2C91-42FD-AAB0-4A141305328B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8380CBCA-2C91-42FD-AAB0-4A141305328B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,6 +67,8 @@ Global
 		{1FEB232B-704A-42D0-B4D8-57D3CB134B12} = {3EED3EC8-6A2A-48DF-B893-E4F46ED7E6D3}
 		{70B71CD6-2F0A-4342-A936-F874A0D4DB23} = {563443CE-8F4D-49D8-B8E3-DE3D03FB7B6C}
 		{ED4C663F-9DEE-4972-9734-AA904F54F787} = {563443CE-8F4D-49D8-B8E3-DE3D03FB7B6C}
+		{9DB08AAA-5410-4125-A822-978E8E9AF9DA} = {F53B8C02-52A0-46DA-9D7F-0060CDDB6C79}
+		{8380CBCA-2C91-42FD-AAB0-4A141305328B} = {F53B8C02-52A0-46DA-9D7F-0060CDDB6C79}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1B73B98F-F07A-49C6-9459-5A7F853B833D}

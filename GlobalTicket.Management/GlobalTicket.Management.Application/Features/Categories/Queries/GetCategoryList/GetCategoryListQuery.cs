@@ -2,7 +2,6 @@
 {
     using MediatR;
     using System.Collections.Generic;
-    public class GetCategoryListQuery : IRequest<List<CategoryListViewModel>>
-    {
-    }
+
+    public class GetCategoryListQuery : IRequest<List<CategoryListViewModel>> { }
 }

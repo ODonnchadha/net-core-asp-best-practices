@@ -6,11 +6,13 @@
     using MediatR;
     using System.Threading;
     using System.Threading.Tasks;
+
     public class GetEventDetailQueryHandler : IRequestHandler<GetEventDetailQuery, EventDetailViewModel>
     {
         private readonly IAsyncRepository<Category> categoryRepository;
         private readonly IAsyncRepository<Event> eventRepository;
         private readonly IMapper mapper;
+
         public GetEventDetailQueryHandler(IAsyncRepository<Category> categoryRepository, IAsyncRepository<Event> eventRepository, IMapper mapper)
         {
             this.categoryRepository = categoryRepository;
@@ -18,12 +20,6 @@
             this.mapper = mapper;
         }
 
-        /// <summary>
-        /// A single event detail with category.
-        /// </summary>
-        /// <param name="request"></param>
-        /// <param name="cancellationToken"></param>
-        /// <returns></returns>
         public async Task<EventDetailViewModel> Handle(GetEventDetailQuery request, CancellationToken cancellationToken)
         {
             var @event = await eventRepository.GetByIdAsync(request.Id);

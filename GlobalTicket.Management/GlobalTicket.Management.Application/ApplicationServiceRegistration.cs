@@ -1,5 +1,6 @@
 ﻿namespace GlobalTicket.Management.Application
 {
+    using GlobalTicket.Management.Application.Contracts.Infrastructure;
     using MediatR;
     using Microsoft.Extensions.DependencyInjection;
     using System.Reflection;

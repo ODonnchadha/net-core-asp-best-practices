@@ -1,10 +1,10 @@
-﻿namespace GlobalTicket.Management.Application.Features.Events.Queries
+﻿namespace GlobalTicket.Management.Application.Features.Events.Commands
 {
+    using MediatR;
     using System;
 
-    public class EventDetailViewModel
+    public class CreateEventCommand : IRequest<Guid>
     {
-        public Guid EventId { get; set; }
         public string Name { get; set; }
         public int Price { get; set; }
         public string Artist { get; set; }
@@ -12,6 +12,6 @@
         public string Description { get; set; }
         public string ImageUrl { get; set; }
         public Guid CategoryId { get; set; }
-        public CategoryDto Category { get; set; }
+        public override string ToString() => $"Event name: {Name}; Price: {Price}; By: {Artist}; On: {Date.ToShortDateString()}; Description: {Description}";
     }
 }

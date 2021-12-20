@@ -90,10 +90,30 @@
         -CQRS: Small model classes with a certain responsibility. Query & command. With CRUD per each.
     - Feature-based approach:
         - Vertical slice through the functionality. Features folder & subfolders. (Not shared typically, even if identical.)
+    - Validation:
+        - Leave the entities alone and do not to use data annotations. 
+            - Use FluentValidation: Lambda expressions for validation rules. 
+            - Within Core: RequestHandler & part of the feature folder.
+        - Handle errors? Returning exceptions? Core should return its own set of exceptions. And then handled or transformed by the consumer.
+        - Used exceptions: NotFoundException. BadRequestException. ValidationException.
 
 - INFRASTRUCTURE PROJECT:
+    - Adding EF Core. Implementating other infrastructure tasks.
+    - All external or I/O components:
+        - Database (EF Core. DbContext.) Files. Service bus. Service client. Logging.
+    - Configuration of technical frameworks.
+    - Implementations for contracts defined in the COre project.
+    - Reference to Core project. Through dependency inverson & DI, services get implemented.
+    - Adding EF Core.
+        - Nuget packages.
+        - DbContext. (DbSets.)
+        - Migration.
+        - Startup registration.
+        - Repository implemetation. Generic contract in Core project. Base repository implementation. With specific respositories if needed.
+    - Sending an email is infrastructure code.
 
 - ADDING ASP.NET CORE API:
+    - TODO:
 
 - TESTING:
 

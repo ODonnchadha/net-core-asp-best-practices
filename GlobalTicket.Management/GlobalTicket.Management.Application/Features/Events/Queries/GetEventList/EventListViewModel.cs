@@ -1,6 +1,7 @@
 ﻿namespace GlobalTicket.Management.Application.Features.Events.Queries
 {
     using System;
+
     public class EventListViewModel
     {
         public Guid EventId { get; set; }
